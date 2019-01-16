@@ -29,7 +29,7 @@ public class PaymentController {
     @RequestMapping(path="/payments", method= RequestMethod.POST)
     public ResponseEntity<PaymentResponse> handlePayment(@RequestBody PaymentRequest paymentRequest) {
         PaymentResponse paymentResponse = paymentService.processPayment(paymentRequest);
-        return new ResponseEntity<PaymentResponse>(paymentResponse, HttpStatus.OK);
+        return new ResponseEntity<>(paymentResponse, HttpStatus.OK);
     }
 
     @RequestMapping(path="/emptyResponse", method = RequestMethod.GET)
