@@ -1,9 +1,9 @@
-package com.codei.rest.unit;
+package com.codeigen.rest.unit;
 
-import com.codei.rest.controller.PaymentController;
-import com.codei.rest.payments.PaymentRequest;
-import com.codei.rest.payments.PaymentResponse;
-import com.codei.rest.payments.PaymentService;
+import com.codeigen.rest.controller.PaymentController;
+import com.codeigen.rest.payments.PaymentRequest;
+import com.codeigen.rest.payments.PaymentResponse;
+import com.codeigen.rest.payments.PaymentService;
 import com.google.gson.Gson;
 import org.junit.Assert;
 import org.junit.Test;

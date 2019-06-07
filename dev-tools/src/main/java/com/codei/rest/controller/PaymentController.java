@@ -1,5 +1,6 @@
 package com.codei.rest.controller;
 
+import com.codei.rest.payments.Constants;
 import com.codei.rest.payments.PaymentRequest;
 import com.codei.rest.payments.PaymentResponse;
 import com.codei.rest.payments.PaymentService;
@@ -17,7 +18,7 @@ public class PaymentController {
 
     @RequestMapping(path = "/", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
     public String info() {
-        return "Hello";
+        return Constants.HELLO_GREETING;
     }
 
     /**

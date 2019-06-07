@@ -27,7 +27,7 @@ public class PaymentControllerTest {
     public void testHello() {
         ResponseEntity<String> responseEntity = testRestTemplate.getForEntity("/", String.class);
         Assert.assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-        Assert.assertEquals("Hello", responseEntity.getBody());
+        Assert.assertEquals(Constants.HELLO_GREETING, responseEntity.getBody());
     }
 
     @Test

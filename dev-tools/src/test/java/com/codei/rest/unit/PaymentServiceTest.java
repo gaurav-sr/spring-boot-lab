@@ -1,9 +1,6 @@
 package com.codei.rest.unit;
 
-import com.codei.rest.payments.PaymentRequest;
-import com.codei.rest.payments.PaymentResponse;
-import com.codei.rest.payments.PaymentService;
-import com.codei.rest.payments.PaymentServiceImpl;
+import com.codei.rest.payments.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,8 +12,7 @@ public class PaymentServiceTest {
         PaymentRequest paymentRequest = new PaymentRequest();
         paymentRequest.setCardId("2134411");
         PaymentResponse paymentResponse = paymentService.processPayment(paymentRequest);
-        Assert.assertNotNull(paymentResponse);
-        Assert.assertTrue(paymentResponse.getMessage().equals("FAIL"));
+        Assert.assertEquals(Constants.FAIL_MESSAGE, paymentResponse.getMessage());
     }
 
 }
