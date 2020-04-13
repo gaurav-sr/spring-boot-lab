@@ -1,5 +1,7 @@
 package com.codei.hellobatch.configuration;
 
+import org.springframework.batch.core.BatchStatus;
+import org.springframework.batch.core.ExitStatus;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
@@ -9,6 +11,8 @@ import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.Random;
 
 @Configuration
 @EnableBatchProcessing
@@ -32,6 +36,9 @@ public class JobConfiguration {
     public Step step2() {
         return stepBuilderFactory.get("step2").tasklet((stepContribution, chunkContext) -> {
             System.out.println("Executing Step2");
+            if(getRandom() %2 == 0) {
+                throw new Exception("Failed");
+            }
             return RepeatStatus.FINISHED;
         }).build();
     }
@@ -68,8 +75,15 @@ public class JobConfiguration {
         return jobBuilderFactory.get("transitionJob")
                 .start(step1())
                 .on("COMPLETED").to(step2())
-                .from(step2()).on("COMPLETED").fail()
+                .from(step2()).on("Fail").fail()
                 .from(step3()).end()
                 .build();
+    }
+
+    private int getRandom() {
+        Random r = new Random();
+        int n = r.nextInt(100);
+        System.out.println("*** "+n);
+        return n;
     }
 }
