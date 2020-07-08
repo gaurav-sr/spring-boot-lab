@@ -14,7 +14,6 @@ public class PaymentController {
 
     private PaymentService paymentService;
 
-
     @RequestMapping(path = "/", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
     public String info() {
         return "Hello";

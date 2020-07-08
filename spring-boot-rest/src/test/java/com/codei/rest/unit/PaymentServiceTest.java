@@ -16,7 +16,7 @@ public class PaymentServiceTest {
         paymentRequest.setCardId("2134411");
         PaymentResponse paymentResponse = paymentService.processPayment(paymentRequest);
         Assert.assertNotNull(paymentResponse);
-        Assert.assertTrue(paymentResponse.getMessage().equals("FAIL"));
+        Assert.assertEquals("FAIL", paymentResponse.getMessage());
     }
 
 }
