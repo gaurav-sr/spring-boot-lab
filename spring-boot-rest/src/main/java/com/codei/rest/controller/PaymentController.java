@@ -15,9 +15,15 @@ public class PaymentController {
     private PaymentService paymentService;
 
 
-    @RequestMapping(path = "/", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
-    public String info() {
-        return "Hello";
+    @RequestMapping(path = "/",
+                    method = RequestMethod.GET,
+                    produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<PaymentResponse> info() {
+        System.out.println("Received....");
+        PaymentResponse paymentResponse = new PaymentResponse();
+        paymentResponse.setMessage("SUCCESS");
+        paymentResponse.setId("1");
+        return new ResponseEntity<PaymentResponse>(paymentResponse, HttpStatus.OK);
     }
 
     /**

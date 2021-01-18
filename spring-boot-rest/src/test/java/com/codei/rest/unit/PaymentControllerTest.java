@@ -38,7 +38,7 @@ public class PaymentControllerTest {
     public void testHello() throws Exception {
         MockHttpServletRequestBuilder mockHttpServletRequestBuilder = MockMvcRequestBuilders
                 .get("/")
-                .accept(MediaType.TEXT_PLAIN);
+                .accept(MediaType.APPLICATION_JSON_VALUE);
         ResultActions resultActions = this.mockMvc.perform(mockHttpServletRequestBuilder);
         resultActions.andExpect(MockMvcResultMatchers.status().isOk());
         resultActions.andExpect(MockMvcResultMatchers.content().string("Hello"));

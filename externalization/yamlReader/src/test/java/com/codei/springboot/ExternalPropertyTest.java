@@ -19,9 +19,9 @@ public class ExternalPropertyTest {
     public void test() {
         Assert.assertNotNull(project);
         String applicationName = project.getApplicationName();
-        Assert.assertTrue("TestProject".equals(applicationName));
-        Assert.assertTrue("TestProject description".equals(project.getAppDescription()));
-        Assert.assertTrue("Gaurav".equals(project.getApplicationAuthor()));
+        Assert.assertEquals("TestProject", applicationName);
+        Assert.assertEquals("TestProject description", project.getAppDescription());
+        Assert.assertEquals("Gaurav", project.getApplicationAuthor());
     }
 
 }
